@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.12 0.025 264;
+    --foreground: 0.95 0.01 264;
+    --card: 0.17 0.03 264;
+    --card-foreground: 0.95 0.01 264;
+    --popover: 0.17 0.03 264;
+    --popover-foreground: 0.95 0.01 264;
+    --primary: 0.75 0.17 53;
+    --primary-foreground: 0.12 0.025 264;
+    --secondary: 0.22 0.04 264;
+    --secondary-foreground: 0.85 0.02 264;
+    --muted: 0.2 0.03 264;
+    --muted-foreground: 0.6 0.03 264;
+    --accent: 0.65 0.15 145;
+    --accent-foreground: 0.12 0.025 264;
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.95 0.01 264;
+    --border: 0.24 0.04 264;
+    --input: 0.24 0.04 264;
+    --ring: 0.75 0.17 53;
+    --radius: 0.75rem;
+    --chart-1: 0.75 0.17 53;
+    --chart-2: 0.65 0.15 145;
+    --chart-3: 0.6 0.15 220;
+    --chart-4: 0.55 0.22 25;
+    --chart-5: 0.7 0.12 300;
+    --sidebar: 0.14 0.03 264;
+    --sidebar-foreground: 0.95 0.01 264;
+    --sidebar-primary: 0.75 0.17 53;
+    --sidebar-primary-foreground: 0.12 0.025 264;
+    --sidebar-accent: 0.22 0.04 264;
+    --sidebar-accent-foreground: 0.85 0.02 264;
+    --sidebar-border: 0.24 0.04 264;
+    --sidebar-ring: 0.75 0.17 53;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+  .font-body {
+    font-family: "Satoshi", sans-serif;
+  }
+
+  .saffron-glow {
+    box-shadow: 0 0 20px oklch(0.75 0.17 53 / 0.3);
+  }
+
+  .card-shine {
+    background: linear-gradient(
+      135deg,
+      oklch(0.17 0.03 264) 0%,
+      oklch(0.2 0.05 264) 50%,
+      oklch(0.17 0.03 264) 100%
+    );
+  }
+
+  .nav-blur {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: oklch(0.12 0.025 264 / 0.85);
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes search-pulse {
+    0% {
+      box-shadow: 0 0 0 0 oklch(0.75 0.17 53 / 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 12px oklch(0.75 0.17 53 / 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 oklch(0.75 0.17 53 / 0);
+    }
+  }
+
+  @keyframes car-move {
+    0% {
+      transform: translateX(-4px);
+    }
+    50% {
+      transform: translateX(4px);
+    }
+    100% {
+      transform: translateX(-4px);
+    }
+  }
+
+  .animate-pulse-dot {
+    animation: pulse-dot 1.2s ease-in-out infinite;
+  }
+
+  .animate-search {
+    animation: search-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-car {
+    animation: car-move 2s ease-in-out infinite;
+  }
+}
